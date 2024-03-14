@@ -4,7 +4,7 @@ This project is a web application designed to fetch and display the current pric
 
 ## Live Demo
 
-Check out the live demo of the application: [Live Demo](https://blystsiv.me/exchanger/)
+Check out the live demo of the application: [Live Demo](https://exchanger-seven.vercel.app/)
 
 ## Getting Started
 
@@ -13,13 +13,13 @@ Follow these steps to run the application locally:
 1. Clone the repository
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/blystsiv/exchanger.git
    ```
 
 2. Navigate to the project directory
 
    ```bash
-   cd project-directory
+   cd exchanger
    ```
 
 3. Install dependencies
