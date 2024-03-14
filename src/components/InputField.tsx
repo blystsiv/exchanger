@@ -1,6 +1,11 @@
 import React from 'react';
 
-export const InputField = ({ input, handleChangeInput }) => {
+interface InputFieldProps {
+  input: number;
+  handleChangeInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const InputField: React.FC<InputFieldProps> = ({ input, handleChangeInput }) => {
   return (
     <div className='rounded-lg mb-8 border border-gray-300 bg-white'>
       <div className='px-4 py-2 border-b border-gray-300'>
@@ -18,4 +23,3 @@ export const InputField = ({ input, handleChangeInput }) => {
     </div>
   );
 };
-

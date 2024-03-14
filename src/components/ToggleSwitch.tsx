@@ -1,4 +1,14 @@
-export const ToggleSwitch = ({ isSell, handleToggleChange, actionText }) => {
+interface ToggleSwitchProps {
+  isSell: boolean;
+  handleToggleChange: () => void;
+  actionText: string;
+}
+
+export const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
+  isSell,
+  handleToggleChange,
+  actionText,
+}) => {
   return (
     <div className='rounded-lg mb-8 border border-gray-300 bg-white'>
       <div className='px-4 py-2 border-b border-gray-300'>

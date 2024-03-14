@@ -1,4 +1,9 @@
-export const ResultField = ({ resultValue, resultText }) => {
+interface ResultFieldProps {
+  resultValue: number;
+  resultText: string;
+}
+
+export const ResultField: React.FC<ResultFieldProps> = ({ resultValue, resultText }) => {
   return (
     <div className='rounded-lg border border-gray-300 bg-white'>
       <div className='px-4 py-2 border-b border-gray-300'>

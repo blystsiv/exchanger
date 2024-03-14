@@ -23,15 +23,15 @@ export const App = () => {
   };
 
   useWebSocketConnection('ethusdt@bookTicker', (data) =>
-    setExchangeData((prevData) => ({ ...prevData, bit: data.b, ask: data.a })),
-  );
-
-  useWebSocketConnection('ethusdt@trade', (data) =>
-    setExchangeData((prevData) => ({ ...prevData, bit: data.p })),
+    setExchangeData({
+      bit: parseFloat(data.b),
+      ask: parseFloat(data.a),
+    }),
   );
 
   useEffect(() => {
     const countedValue = input * (isSell ? exchangeData.bit : exchangeData.ask);
+
     setResultValue(Number(countedValue.toFixed(2)));
   }, [exchangeData, input, isSell]);
 
