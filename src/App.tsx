@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { InputField, ResultField, ToggleSwitch } from './components';
-import { useWebSocketConnection } from './hooks';
+import { WebSocketData, useWebSocketConnection } from './hooks';
 
 interface ExchangeData {
   bit: number;
@@ -23,14 +23,14 @@ export const App = () => {
   };
 
   const updateExchangeData = useCallback(
-    (data) =>
+    (data: WebSocketData) =>
       setExchangeData({
         bit: parseFloat(data.b),
         ask: parseFloat(data.a),
       }),
     [setExchangeData],
   );
-  
+
   useWebSocketConnection('ethusdt@bookTicker', updateExchangeData);
 
   useEffect(() => {

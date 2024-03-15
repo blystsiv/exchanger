@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-interface WebSocketData {
+export interface WebSocketData {
   A: string;
   B: string;
   a: string;
