@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { InputField, ResultField, ToggleSwitch } from './components';
 import { useWebSocketConnection } from './hooks';
 
@@ -22,12 +22,16 @@ export const App = () => {
     setIsSell((prevIsSell) => !prevIsSell);
   };
 
-  useWebSocketConnection('ethusdt@bookTicker', (data) =>
-    setExchangeData({
-      bit: parseFloat(data.b),
-      ask: parseFloat(data.a),
-    }),
+  const updateExchangeData = useCallback(
+    (data) =>
+      setExchangeData({
+        bit: parseFloat(data.b),
+        ask: parseFloat(data.a),
+      }),
+    [setExchangeData],
   );
+  
+  useWebSocketConnection('ethusdt@bookTicker', updateExchangeData);
 
   useEffect(() => {
     const countedValue = input * (isSell ? exchangeData.bit : exchangeData.ask);
